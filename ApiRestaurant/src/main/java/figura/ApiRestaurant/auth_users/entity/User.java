@@ -1,6 +1,7 @@
 package figura.ApiRestaurant.auth_users.entity;
 
 
+import figura.ApiRestaurant.cart.entity.Cart;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

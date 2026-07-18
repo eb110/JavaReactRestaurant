@@ -98,11 +98,12 @@ Annotations to remember ##################################
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 @ManyToMany -> relationship
     @ManyToMany(fetch = FetchType.EAGER)
+@ManyToOne -> relationship
 @NoArgsConstructor -> lombok
 @NotBlank - validator
     @NotBlank(message = "password is required")
 @OneToMany -> relationship
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
 @OneToOne -> relationship
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 @Override -> inheritance for example new version of abstract function
