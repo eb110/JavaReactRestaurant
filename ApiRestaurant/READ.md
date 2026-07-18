@@ -103,6 +103,8 @@ Annotations to remember ##################################
 @NoArgsConstructor -> lombok
 @NotBlank - validator
     @NotBlank(message = "password is required")
+@NotNull - validator
+    @NotNull(message = "price is required")
 @OneToMany -> relationship
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
 @OneToOne -> relationship
@@ -111,6 +113,8 @@ Annotations to remember ##################################
 @PathVariable -> client simple parameter
 @Pointcut -> aop -> information to apply -> for example to all service method
     @Pointcut("execution(* figura.user_service.service.*.*(..))")
+@Positive -> validator
+    @Positive(message = "price must be a positive value")
 @PostMapping
 @PreDestroy -> for example - shutdown of threads
 @PutMapping
