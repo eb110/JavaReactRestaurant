@@ -75,7 +75,7 @@ Annotations to remember ##################################
     @Email(message = "invalid email format")
 @EnableScheduling -> required by scheduler, place in start application class
 @Entity
-@Enumerated -> in case of Enum usage by db entity
+@Enumerated -> in case of Enum usage by db entity - if we want to save actual enum instead of its index
     @Enumerated(EnumType.STRING)  
 @ExceptionHandler -> utilised by global exception class
 @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -110,6 +110,11 @@ Annotations to remember ##################################
 @OneToOne -> relationship
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 @Override -> inheritance for example new version of abstract function
+@Param -> Query param:
+    @Query("SELECT CASE WHEN COUNT(oi) > 0 THEN true ELSE false END FROM OrderItem oi " +
+    "WHERE oi.order.id = :oderId AND oi.menu.id = :menuId")
+    boolean existsByOrderIdAndMenuId(
+    @Param("orderId") Long oderId, @Param("menuId") Long menuId); }
 @PathVariable -> client simple parameter
 @Pointcut -> aop -> information to apply -> for example to all service method
     @Pointcut("execution(* figura.user_service.service.*.*(..))")
@@ -118,7 +123,11 @@ Annotations to remember ##################################
 @PostMapping
 @PreDestroy -> for example - shutdown of threads
 @PutMapping
+@Query -> jpa query
+    @Query("SELECT COUNT(DISTINCT o.user.id) FROM Order o")
 @Repository -> jpa
+    public interface OrderRepository extends JpaRepository<Order, Long>
+    List<Order> findByUserOrderByOrderDateDesc(User user);
 @RequestBody -> if expecting model from the client
 @RequestMapping -> custom address "/api/blablabla"
 @ResponseStatus -> this automatically sends back the status
