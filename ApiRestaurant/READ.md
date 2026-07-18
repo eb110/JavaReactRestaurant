@@ -96,6 +96,7 @@ Annotations to remember ##################################
     @JsonInclude(JsonInclude.Include.NON_NULL) -> include only non-null parameters
 @JsonProperty
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+@Lob -> large data type
 @ManyToMany -> relationship
     @ManyToMany(fetch = FetchType.EAGER)
 @ManyToOne -> relationship
