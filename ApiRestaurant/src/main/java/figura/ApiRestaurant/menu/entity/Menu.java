@@ -1,6 +1,8 @@
 package figura.ApiRestaurant.menu.entity;
 
 import figura.ApiRestaurant.category.entity.Category;
+import figura.ApiRestaurant.order.entity.OrderItem;
+import figura.ApiRestaurant.review.entity.Review;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -100,6 +100,10 @@ Annotations to remember ##################################
 @ManyToMany -> relationship
     @ManyToMany(fetch = FetchType.EAGER)
 @ManyToOne -> relationship
+@Max -> validation
+@Max(10)
+@Min -> validation
+@Min(1)
 @NoArgsConstructor -> lombok
 @NotBlank - validator
     @NotBlank(message = "password is required")

@@ -4,6 +4,7 @@ package figura.ApiRestaurant.auth_users.entity;
 import figura.ApiRestaurant.cart.entity.Cart;
 import figura.ApiRestaurant.order.entity.Order;
 import figura.ApiRestaurant.payment.entity.Payment;
+import figura.ApiRestaurant.review.entity.Review;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
