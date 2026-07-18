@@ -3,6 +3,7 @@ package figura.ApiRestaurant.order.entity;
 import figura.ApiRestaurant.auth_users.entity.User;
 import figura.ApiRestaurant.enums.OrderStatus;
 import figura.ApiRestaurant.enums.PaymentStatus;
+import figura.ApiRestaurant.payment.entity.Payment;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

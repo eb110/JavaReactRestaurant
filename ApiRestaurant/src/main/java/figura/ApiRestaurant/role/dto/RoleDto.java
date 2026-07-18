@@ -1,14 +1,11 @@
-package figura.ApiRestaurant.cart.dto;
+package figura.ApiRestaurant.role.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import figura.ApiRestaurant.menu.dto.MenuDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
@@ -16,15 +13,9 @@ import java.math.BigDecimal;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CartItemDto {
+public class RoleDto {
 
     private Long id;
 
-    private MenuDto menu;
-
-    private int quantity;
-
-    private BigDecimal pricePerUnit;
-
-    private BigDecimal subTotal;
+    private String name;
 }

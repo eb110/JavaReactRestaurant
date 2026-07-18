@@ -5,6 +5,7 @@ import figura.ApiRestaurant.cart.entity.Cart;
 import figura.ApiRestaurant.order.entity.Order;
 import figura.ApiRestaurant.payment.entity.Payment;
 import figura.ApiRestaurant.review.entity.Review;
+import figura.ApiRestaurant.role.entity.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
