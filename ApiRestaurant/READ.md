@@ -53,6 +53,7 @@ Annotations to remember ##################################
 @AllArgsConstructor -> lombok
 @Aspect -> aop -> allows to create a functionality that reflects to a group of methods
     for example -> to all service methods -> check pointcut, before, afterReturning
+@Async -> asynchronous -> check @EnableAsync
 @Autowired -> to utilise the @component, repository
     not required if only one param is injected via constructor
 @Bean -> part of the @Configuration
@@ -73,6 +74,7 @@ Annotations to remember ##################################
 @Disabled -> to disable unit test, for example finished seed or just broken test
 @Email -> validation
     @Email(message = "invalid email format")
+@EnableAsync -> required by async call, place in start application class
 @EnableScheduling -> required by scheduler, place in start application class
 @Entity
 @Enumerated -> in case of Enum usage by db entity - if we want to save actual enum instead of its index
@@ -154,7 +156,8 @@ Annotations to remember ##################################
 @Table -> schema table
 @Test
 @Value -> property from configuration
-    @Value("${simulation.request-per-interval")
+    @Value("${spring.mail.host}")
+    private String host;
 
 shortcuts#########################
 ctrl shift t -> go to test
