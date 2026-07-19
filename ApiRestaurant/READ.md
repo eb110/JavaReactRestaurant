@@ -134,6 +134,7 @@ Annotations to remember ##################################
     List<Order> findByUserOrderByOrderDateDesc(User user);
 @RequestBody -> if expecting model from the client
 @RequestMapping -> custom address "/api/blablabla"
+@RequiredArgsConstructor -> lombok
 @ResponseStatus -> this automatically sends back the status
     we don't have to return it
 @RestController
