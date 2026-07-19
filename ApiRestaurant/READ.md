@@ -109,6 +109,7 @@ Annotations to remember ##################################
     @NotBlank(message = "password is required")
 @NotNull - validator
     @NotNull(message = "price is required")
+@NullMarked -> return value not null
 @OneToMany -> relationship
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
 @OneToOne -> relationship
@@ -124,7 +125,10 @@ Annotations to remember ##################################
     @Pointcut("execution(* figura.user_service.service.*.*(..))")
 @Positive -> validator
     @Positive(message = "price must be a positive value")
-@PostMapping
+@PostConstruct -> execute included method right after object initialization
+    @PostConstruct
+    private void init() { System.out.println("Iniciando JWT utilizando..."); }
+@PostMapping -> for mapper
 @PreDestroy -> for example - shutdown of threads
 @PutMapping
 @Query -> jpa query
