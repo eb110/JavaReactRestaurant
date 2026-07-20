@@ -41,6 +41,7 @@ public class SecurityFilter {
                         "/api/categories/**",
                         "/api/menu/**",
                         "/api/reviews/**"
+                        //"/api/roles/**"
                         //aws upload of the file - dangerous
                         //"/api/upload/**"
                             )
@@ -59,7 +60,7 @@ public class SecurityFilter {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 }

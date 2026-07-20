@@ -20,6 +20,8 @@ import org.springframework.stereotype.Service;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -106,7 +108,7 @@ public class NotificationServiceImpl implements NotificationService {
             MimeMessageHelper helper = new MimeMessageHelper(
                 mimeMessage,
                 MimeMessageHelper.MULTIPART_MODE_RELATED,
-                StandardCharsets.UTF_8.name()
+                UTF_8.name()
             );
 
             helper.setTo(notificationDto.getRecipient());

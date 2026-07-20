@@ -131,6 +131,8 @@ Annotations to remember ##################################
     @PostConstruct
     private void init() { System.out.println("Iniciando JWT utilizando..."); }
 @PostMapping -> for mapper
+@PreAuthorize -> java authorization
+    @PreAuthorize("hasAuthority('ADMIN')")
 @PreDestroy -> for example - shutdown of threads
 @PutMapping
 @Query -> jpa query

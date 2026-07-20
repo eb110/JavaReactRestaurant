@@ -1,7 +1,6 @@
 package figura.ApiRestaurant.security;
 
 import figura.ApiRestaurant.exceptions.CustomAuthenticationEntryPoint;
-import io.jsonwebtoken.Jwt;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,6 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -40,21 +40,23 @@ public class AuthFilter extends OncePerRequestFilter {
         String token = getTokenFromRequest(request);
 
         if (token != null) {
-            String email = "";
+            String email;
 
             try{
                 email = jwtUtils.getUsernameFromToken(token);
             }catch (Exception e){
                 AuthenticationException authenticationException = new BadCredentialsException(e.getMessage());
                 customAuthenticationEntryPoint.commence(request, response, authenticationException);
+                return;
             }
 
             UserDetails userDetails = customUserDetailsService.loadUserByUsername(email);
 
-            if(!email.isEmpty() && StringUtils.hasText(email) && jwtUtils.isTokenValid(token, userDetails)){
+            if(StringUtils.hasText(email) && jwtUtils.isTokenValid(token, userDetails)){
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                     userDetails, null, userDetails.getAuthorities()
                 );
+                authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }
         }
