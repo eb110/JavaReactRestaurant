@@ -40,8 +40,8 @@ public class SecurityFilter {
                     "/api/auth/**",
                         "/api/categories/**",
                         "/api/menu/**",
-                        "/api/reviews/**"
-                        //"/api/roles/**"
+                        "/api/reviews/**",
+                        "/api/roles/**"
                         //aws upload of the file - dangerous
                         //"/api/upload/**"
                             )
