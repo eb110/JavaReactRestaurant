@@ -36,7 +36,14 @@ public class SecurityFilter {
                 .accessDeniedHandler(customAccessDenialHandler)
                 .authenticationEntryPoint(customAuthenticationEntryPoint))
             .authorizeHttpRequests(r ->
-                r.requestMatchers("/api/auth/**", "/api/categories/**", "/api/menu/**", "/api/reviews/**")
+                r.requestMatchers(
+                    "/api/auth/**",
+                        "/api/categories/**",
+                        "/api/menu/**",
+                        "/api/reviews/**"
+                        //aws upload of the file - dangerous
+                        //"/api/upload/**"
+                            )
                     .permitAll()
                     .anyRequest()
                     .authenticated())
